@@ -27,3 +27,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// ป้องกันคลิกขวา
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+// ป้องกันปุ่ม F12 และ Ctrl+U / Ctrl+Shift+I
+document.addEventListener('keydown', e => {
+    if (e.key === 'F12' || 
+        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+        (e.ctrlKey && e.key === 'u')) {
+        e.preventDefault();
+        return false;
+    }
+});
+
